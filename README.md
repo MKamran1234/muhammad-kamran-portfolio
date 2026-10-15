@@ -36,6 +36,8 @@ The project uses the official `gsap` package for its animation plugins.
 Netlify builds with `npm run build` and publishes the `dist` directory, as
 configured in `netlify.toml`.
 
+Live site: https://muhammad-kamran-portfolio-mk.netlify.app/
+
 ---
 
 ## ⚙️ Tech Stack
