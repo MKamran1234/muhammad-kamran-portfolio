@@ -1,0 +1,306 @@
+/* ═══════════════════════════════════════════════
+   WORK / PROJECTS SECTION
+═══════════════════════════════════════════════ */
+
+/* ── Section wrapper ── */
+.work-section {
+  min-height: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: clamp(72px, 9vw, 140px) 0;
+}
+
+/* ── Sticky container inside the section ── */
+.work-container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  align-content: stretch;
+  padding-top: 0;
+}
+
+/* ── Section heading ── */
+.work-section h2 {
+  margin-top: 0;
+  margin-bottom: clamp(36px, 5vw, 72px);
+  font-size: clamp(36px, 5vw, 70px);
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #ffffff 40%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.work-section h2 > span {
+  background: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Horizontal scrolling strip ── */
+.work-flex {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  height: auto;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* ── Horizontal separator lines ── */
+.work-flex::before,
+.work-flex::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.3) 30%, rgba(6, 182, 212, 0.3) 70%, transparent);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+}
+.work-flex::after { display: none; }
+
+/* ── Individual project card ── */
+.work-box {
+  padding: clamp(28px, 4vw, 56px);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  border-right: 1px solid rgba(168, 85, 247, 0.1);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.1);
+  flex-shrink: 0;
+  gap: 40px;
+  justify-content: flex-start;
+  transition: all 0.35s ease;
+  position: relative;
+}
+.work-box:hover {
+  background: rgba(168, 85, 247, 0.04);
+  box-shadow: inset 0 0 40px rgba(6, 182, 212, 0.03);
+}
+.work-flex .work-box:nth-child(even) { background: rgba(6, 182, 212, 0.02); }
+
+/* ── Project header row ── */
+.work-title {
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+.work-title > div { text-align: right; }
+
+.work-title h3 {
+  font-size: clamp(32px, 3vw, 52px);
+  line-height: 1;
+  margin: 0;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.15);
+}
+
+/* ── Info text ── */
+.work-info h4 {
+  font-size: clamp(13px, 1.2vw, 18px);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+}
+.work-info h4 a {
+  transition: color 0.25s;
+}
+.work-info h4 a:hover { color: var(--accentColor); }
+
+.work-info p {
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  margin-top: 4px;
+  font-size: clamp(11px, 1vw, 14px);
+}
+.work-info > p { width: 90%; }
+
+/* ── Toolset label ── */
+.work-info > h4:last-of-type {
+  margin-top: 16px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.4;
+  font-weight: 400;
+}
+
+/* ── Image wrapper ── */
+.work-image {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.work-image-in {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* External link indicator */
+.work-link {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: var(--backgroundColor);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.4),
+              inset 0 0 10px #393939;
+  transition: opacity 0.3s, transform 0.3s;
+  opacity: 0;
+  z-index: 2;
+}
+.work-image a:hover { color: inherit; }
+.work-image a:hover .work-link {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.work-image video {
+  position: absolute;
+  width: 100%; height: 100%;
+  top: 0; left: 0;
+  background-color: #000;
+  object-fit: cover;
+}
+
+.work-image img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.45s ease;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+}
+.work-image a:hover img {
+  transform: scale(1.04);
+  box-shadow: 0 8px 40px rgba(194,164,255,0.18);
+}
+
+/* ─── Responsive ─── */
+@media only screen and (max-height: 900px) {
+  .work-image img { max-height: 200px; }
+  .work-box { padding-top: 36px; padding-bottom: 36px; }
+  .work-section h2 { margin-bottom: 24px; }
+}
+
+@media only screen and (max-width: 1400px) {
+  .work-title h3  { font-size: 36px; }
+  .work-info p    { font-size: 13px; }
+  .work-info h4   { font-size: 15px; }
+  .work-box       { padding: 40px 50px; }
+}
+
+@media only screen and (max-width: 900px) {
+  .work-flex { grid-template-columns: 1fr; }
+  .work-box  { padding: 28px 0; }
+}
+
+@media only screen and (max-height: 650px) {
+  .work-image img  { max-height: 180px; }
+  .work-section h2 { font-size: 36px; margin-bottom: 16px; }
+  .work-box        { gap: 18px; }
+}
+
+@media only screen and (max-width: 1025px) {
+  .work-section { padding: 60px 0; }
+  .work-container { align-content: normal; width: 100%; }
+  .work-section h2 { margin-top: 0; margin-bottom: 32px; font-size: 36px; }
+  .work-flex { display: flex; flex-direction: column; }
+  .work-box {
+    min-height: 0;
+    padding: 28px 0;
+    gap: 20px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+  }
+  .work-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .work-title > div {
+    text-align: left;
+  }
+  .work-flex .work-box:nth-child(even) { flex-direction: column; }
+  .work-info > p { width: 100%; }
+  .work-image img { max-height: 220px; }
+}
+
+@media only screen and (max-width: 600px) {
+  .work-section {
+    padding: 56px 0;
+  }
+  .work-section h2 {
+    font-size: clamp(32px, 9vw, 42px);
+    margin-bottom: 24px;
+  }
+  .work-box {
+    padding: 24px 16px;
+    gap: 18px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(168, 85, 247, 0.16);
+    border-radius: 14px;
+    background: linear-gradient(145deg, rgba(20, 16, 30, 0.82), rgba(11, 10, 19, 0.92));
+  }
+  .work-flex .work-box:nth-child(even) {
+    background: linear-gradient(145deg, rgba(20, 16, 30, 0.82), rgba(11, 10, 19, 0.92));
+  }
+  .work-title h3 {
+    font-size: 30px;
+    color: rgba(194, 164, 255, 0.46);
+  }
+  .work-title {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .work-title > div {
+    text-align: left;
+  }
+  .work-info h4 {
+    font-size: 15px;
+  }
+  .work-info > h4:last-of-type {
+    margin-top: 12px;
+  }
+  .work-info p {
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+  .work-image img {
+    max-height: none;
+    aspect-ratio: 16 / 10;
+  }
+  .work-link {
+    opacity: 1;
+    width: 36px;
+    height: 36px;
+    font-size: 17px;
+  }
+  .work-info > h4:last-of-type {
+    color: var(--accentCyan);
+    opacity: 0.8;
+  }
+}
